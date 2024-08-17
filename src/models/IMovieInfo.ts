@@ -1,4 +1,4 @@
-import {IGenres} from "@/models/IGenres";
+import {IGenre, IGenres} from "@/models/IGenres";
 
 export interface IMovieInfo {
     adult: boolean,
@@ -10,7 +10,7 @@ export interface IMovieInfo {
         backdrop_path: string
     },
     budget: number,
-    genres: IGenres,
+    genres: IGenre[],
     homepage: string,
     id: number,
     imdb_id: string,

@@ -1,0 +1,13 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+.body-dark{
+    background-color: darkblue;
+    /*div{*/
+    /*    width: 100px;*/
+    /*}*/
+}
+.body-light{
+    background-color: lightblue;
+}

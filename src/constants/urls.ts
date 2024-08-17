@@ -8,9 +8,10 @@ const urls= {
         poster: '/image'
     },
     search:{
-        movie:'/search/keyword'
+        movie:'/search/movie'
     },
-    movie:'/movie/'
+    movie:'/movie',
+    poster:'https://image.tmdb.org/t/p/w500/'
 }
 
 export {baseUrl, token, urls}

@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import HeaderComponent from "@/components/Header/HeaderComponent";
+import {Provider} from "react-redux";
+import {ThemeSwitcher} from "@/components/Header/ThemeSwitcher/ThemeSwitcher";
+import {store} from "@/redux/store";
+import {Providers} from "@/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +21,14 @@ export default function RootLayout({
 }: Readonly<PropType>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
 
+      <body className={inter.className}>
+      <Providers>
       <HeaderComponent/>
       {children}
+      </Providers>
       </body>
+
     </html>
   );
 }

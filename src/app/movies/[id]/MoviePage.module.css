@@ -1,0 +1,31 @@
+.main {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main img {
+    width: 300px;
+}
+.titleMovie{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.divDescription {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /*justify-content: flex-start;*/
+    align-items:  flex-start;
+    margin-left: 10px;
+}
+.badge{
+    font-size:10px;
+    background-color: grey;
+    font-weight: bold;
+    color: darkblue;
+    padding:10px 10px;
+    border-radius: 10px;
+}
