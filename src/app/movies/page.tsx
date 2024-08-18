@@ -10,7 +10,6 @@ import PaginationComponent from "@/components/PaginationContainer/PaginationComp
 
 const MoviesPage:FC =  async ({searchParams}:any) => {
     let page = (searchParams? searchParams.page : 1);
-    console.log(page)
     const movies:IPaginatedMovie = await getAllMovies(page);
     return (
             <div>
@@ -20,7 +19,6 @@ const MoviesPage:FC =  async ({searchParams}:any) => {
 
                      <Link className={styles.Link} href={{pathname: '/movies/' + result.id, query: {data: JSON.stringify(result)}}}>
                          <div className={styles.block}>
-                             {/*{result.}*/}
                              <h3 className={styles.h3}>{result.title}</h3>
                              <img className={styles.image} src={`${urls.poster}${result.poster_path}`}
                                   alt={result.title}/>

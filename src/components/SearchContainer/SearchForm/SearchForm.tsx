@@ -18,11 +18,9 @@ const SearchForm = () => {
         const fetchSearchMovies = async () => {
             const data = await searchMovie(submittedQuery, currentPage);
             setSearchMovieResults(data.results);
-            console.log(data.results);
             setTotalPages(data.total_pages);
         };
         fetchSearchMovies();
-        console.log(currentPage);
     }, [submittedQuery, currentPage]);
 
     const handleNextPage = () => {
