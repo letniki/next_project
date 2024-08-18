@@ -18,7 +18,6 @@ const ThemeSwitcher : FC = () => {
             <div className={styles.container}>
                 <input type="checkbox" id={styles.toggleButton} className={styles.toggleButton} onChange={()=>{
                     dispatch(changeTheme());
-                    console.log(theme);
                 }}/>
             </div>
         </div>
