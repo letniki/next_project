@@ -1,4 +1,3 @@
-
 import React from 'react';
 import styles from './MoviePage.module.css'
 import {getMovieById} from "@/services/api.service";

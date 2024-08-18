@@ -1,11 +1,8 @@
 'use client'
 import React, {FormEvent, useEffect, useState} from "react";
-import {useRouter} from "next/navigation";
-import {getGenreMovies} from "@/services/api.service";
 import {searchMovie} from "@/services/search.service";
 import {IGenre} from "@/models/IGenres";
 import MovieInfoComponent from "@/components/SearchContainer/MovieInfoComponent";
-import PaginationComponent from "@/components/PaginationContainer/PaginationComponent";
 import styles from './searchForm.module.css'
 const SearchForm = () => {
     const [query, setSearchQuery] = useState('');
@@ -42,7 +39,6 @@ const SearchForm = () => {
     const handleChange = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         submittedQuery!=query && setCurrentPage(1);
-        // setSubmittedQuery(query);
     };
 
     return (
