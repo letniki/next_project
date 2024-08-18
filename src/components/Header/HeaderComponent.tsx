@@ -8,7 +8,7 @@ const HeaderComponent = () => {
     return (
 
             <nav className={styles.header}>
-               <Link href={'https://github.com/letniki'}> <img src="/github.png" alt="github"/></Link>
+               <Link href={'https://github.com/letniki'}> <img src="/github.png" alt="github" className={styles.image}/></Link>
                 {/*<Link href={'/movies?page=4'}>Home page</Link>*/}
                 <Link className={styles.Link} href={'/'}>Movies</Link> {/*todo something*/}
                 <Link className={styles.Link} href={'/genres'}>Genres</Link>

@@ -19,18 +19,3 @@
     background-color:#002ead;
     transition: 0.7s;
 }
-
-
-/*.genreLink:hover {*/
-/*    background-color: cornflowerblue;*/
-/*    border: none;*/
-/*}*/
-
-.genreLinkLink {
-    color: darkblue;
-    text-decoration: none;
-}
-
-.genreLinkLink:hover{
-    color: white;
-}

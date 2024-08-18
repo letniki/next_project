@@ -13,7 +13,7 @@ let allGenres =await getAllGenres();
                             <Link key={genre.id}
                                 href={{pathname:'/genres/'+ genre.id, query:{data:JSON.stringify(genre)}}}
                                 className={styles.genreLink}>
-                                {genre.name}
+                               <span> {genre.name}</span>
                             </Link>
                 )
             }

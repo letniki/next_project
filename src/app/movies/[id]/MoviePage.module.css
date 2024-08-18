@@ -1,14 +1,14 @@
-.main {
+.biggerBlock {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.main img {
-    width: 300px;
+ .image {
+    width: 400px;
 }
-.titleMovie{
+.p{
     font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
@@ -30,7 +30,7 @@
     /*border: 1px solid black;*/
 }
 .badge{
-    font-size:10px;
+    font-size:15px;
     margin-top: 10px;
     text-decoration: none;
     margin-right: 20px;

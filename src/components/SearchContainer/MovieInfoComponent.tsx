@@ -20,11 +20,9 @@ const MovieInfoComponent:FC<IProps> = ({movieId,page}) => {
 
     const [searchMovieById, setSearchMovieById] = useState<IMovieInfo | undefined>();
     useEffect(() => {
-        console.log(movieId);
     const fetchSearchMovies = async () => {
         const movieById = await getMovieById(movieId);
 
-        console.log(movieById);
         setSearchMovieById(movieById);
         // setTotalPages(500);
     };

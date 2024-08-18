@@ -39,6 +39,12 @@
     background-color:#002ead;
     transition: 0.7s;
 }
+.h3{
+    color: red;
+    display: flex;
+    justify-content: center;
+    text-decoration: none
+}
 .pagination{
     width: 100%;
     height: 10vh;

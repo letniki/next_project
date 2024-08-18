@@ -12,10 +12,8 @@
     font-size: 40px;
     font-family: 'Alumni Sans Inline One', cursive;
     background-color: cornflowerblue;
-    /*background-color: rgba(0, 0, 0, 0.7);*/
-    color: snow;
-    /*height: 50px;*/
 }
 .Link{
     text-decoration: none;
+    color: darkblue;
 }

@@ -5,9 +5,12 @@ body{
 }
 .body-dark{
     background-color: darkblue;
-    /*div{*/
-    /*    width: 100px;*/
-    /*}*/
+    nav{
+        background-color: #3CBC8D;
+    }
+    div{
+        color: bisque;
+    }
 }
 .body-light{
     background-color: lightblue;

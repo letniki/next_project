@@ -66,7 +66,7 @@ const SearchForm = () => {
                 <button onClick={handlePreviousPage} className={styles.button} disabled={currentPage === 1}>
                     Previous
                 </button>
-                <p>You are on {currentPage}  page</p>
+                <h3 className={styles.h3}>You are on {currentPage}  page</h3>
                 <button onClick={handleNextPage} className={styles.button} disabled={currentPage === totalPages}>
                     Next
                 </button>

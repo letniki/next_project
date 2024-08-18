@@ -1,25 +1,24 @@
 'use client'
 import React, {useEffect, useState} from 'react';
-import {getAllMovies, getGenreMovies} from "@/services/api.service";
+import {getGenreMovies} from "@/services/api.service";
 import styles from './genre.id.module.css'
 import {urls} from "@/constants/urls";
 import {IMovie} from "@/models/IMovie";
 import Link from "next/link";
 import Stars from "@/module/Stars";
+import {IPaginatedMovie} from "@/models/IPaginatedMovie";
 type Params = { id: string };
 const GenrePage = ({params}:{params:Params}) => {
-    console.log(JSON.parse(params.id));
     const [genreMovies, setGenreMovies] = useState<IMovie[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(1);
     useEffect(() => {
         const fetchGenreMovies = async () => {
-            const data = await getGenreMovies(params.id,currentPage);
+            const data:IPaginatedMovie = await getGenreMovies(params.id,currentPage);
             setGenreMovies(data.results);
             setTotalPages(500);
         };
         fetchGenreMovies();
-        console.log(currentPage);
     }, [currentPage]);
 
     const handleNextPage = () => {
@@ -64,12 +63,12 @@ const GenrePage = ({params}:{params:Params}) => {
                 <button className={styles.button} onClick={handlePreviousPage} disabled={currentPage === 1}>
                     Previous
                 </button>
-                <span>{currentPage} / {totalPages}</span>
+                <h3 className={styles.h3}>You are on {currentPage} page</h3>
                 <button className={styles.button} onClick={handleNextPage} disabled={currentPage === totalPages}>
                     Next
                 </button>
             </div>
-            <h3 className={styles.h3}>You are on {currentPage} page</h3>
+
         </div>
     );
 };
