@@ -21,20 +21,20 @@ import React, {FC} from 'react';
 import {IMovie} from "@/models/IMovie";
 import style from '@/moduleCSS/style.module.css'
 import Link from "next/link";
-import {getAllMovies} from "@/services/api.service";
+import {getAllMovies, getMovieById} from "@/services/api.service";
 import {urls} from "@/constants/urls";
 import {IPaginatedMovie} from "@/models/IPaginatedMovie";
 import Stars from "@/module/Stars";
 import styles from './movies.page.module.css'
 import PaginationComponent from "@/components/PaginationContainer/PaginationComponent";
+import {IMovieInfo} from "@/models/IMovieInfo";
+import Image from "next/image";
 
 
 const MoviesPage:FC =  async ({searchParams}:any) => {
     let page = (searchParams? searchParams.page : 1);
     console.log(page)
     const movies:IPaginatedMovie = await getAllMovies(page);
-
-
     return (
             <div>
                 <div className={styles.biggerBlock}>

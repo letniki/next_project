@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchForm from "@/components/SearchContainer/SearchForm";
+import SearchForm from "@/components/SearchContainer/SearchForm/SearchForm";
 
 const SearchPage = () => {
     return (

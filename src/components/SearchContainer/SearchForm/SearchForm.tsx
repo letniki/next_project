@@ -4,10 +4,9 @@ import {useRouter} from "next/navigation";
 import {getGenreMovies} from "@/services/api.service";
 import {searchMovie} from "@/services/search.service";
 import {IGenre} from "@/models/IGenres";
-import styles from "@/app/genres/[id]/genre.id.module.css";
 import MovieInfoComponent from "@/components/SearchContainer/MovieInfoComponent";
 import PaginationComponent from "@/components/PaginationContainer/PaginationComponent";
-
+import styles from './searchForm.module.css'
 const SearchForm = () => {
     const [query, setSearchQuery] = useState('');
     const [submittedQuery, setSubmittedQuery] = useState<string>('');
@@ -18,7 +17,6 @@ const SearchForm = () => {
         event.preventDefault();
         setSubmittedQuery(query);
     };
-
     useEffect(() => {
         const fetchSearchMovies = async () => {
             const data = await searchMovie(submittedQuery, currentPage);
@@ -41,36 +39,38 @@ const SearchForm = () => {
             setCurrentPage((prevPage) => prevPage - 1);
         }
     };
+    const handleChange = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        submittedQuery!=query && setCurrentPage(1);
+        // setSubmittedQuery(query);
+    };
 
     return (
         <div>
-            <div className={styles.form}>
-            <h1>Search:</h1>
-            <form onSubmit={handleSubmit}>
+            <div >
+            <form onSubmit={handleSubmit} onChange={handleChange} className={styles.form}>
                 <div>
-                    <label htmlFor="search">Search:</label>
-                    <input
+                    <input className={styles.input}
                         type="text"
                         id="search"
                         value={query}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                 </div>
-                <button type='submit' >Submit</button>
+                <button type='submit' className={styles.button}>Search</button>
             </form></div>
+            <div className={styles.biggerBlock}>
             {searchMovieResults?.map(result=> <MovieInfoComponent key={result.id} movieId={result.id} page={currentPage}/>)}
-            {/*{searchMovieResults &&(<MoviesInfoComponent results={searchMovieResults} page={currentPage}/>)}*/}
+            </div>
             {submittedQuery && (<div className={styles.pagination}>
-                <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                <button onClick={handlePreviousPage} className={styles.button} disabled={currentPage === 1}>
                     Previous
                 </button>
-                <span>{currentPage} / {totalPages}</span>
-                <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                <p>You are on {currentPage}  page</p>
+                <button onClick={handleNextPage} className={styles.button} disabled={currentPage === totalPages}>
                     Next
                 </button>
             </div>)}
-            {/*<PaginationComponent page={1} pathname={`search?query=${submittedQuery}`}/>*/}
-
 
         </div>
     );

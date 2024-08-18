@@ -7,8 +7,9 @@ import {IGenre} from "@/models/IGenres";
 import Link from "next/link";
 import {allowedDisplayValues} from "next/dist/compiled/@next/font/dist/constants";
 import {urls} from "@/constants/urls";
-import styles from "@/app/movies/movies.page.module.css";
+import styles from './MovieInfo.module.css';
 import PaginationComponent from "@/components/PaginationContainer/PaginationComponent";
+import Stars from "@/module/Stars";
 
 interface IProps{
     movieId:number,
@@ -33,17 +34,25 @@ const MovieInfoComponent:FC<IProps> = ({movieId,page}) => {
     // let movieById:IMovieInfo = await getMovieById(movieId);
     // console.log(movieById);
     return (
-        <div>
+
+        <div className={styles.biggerBlock}>
             <div><Link className={styles.Link} href={{pathname: '/movies/' + searchMovieById?.id, query: {data: JSON.stringify(searchMovieById)}}}>
-                {searchMovieById &&<div>
-                    <div>{searchMovieById.title}</div>
-                    <img src={`${urls.poster}${searchMovieById.poster_path}`} alt={searchMovieById.title}/>
+                {searchMovieById?.poster_path && <div className={styles.block}>
+
+                    <h3 className={styles.h3}>{searchMovieById.title}</h3>
+                    <img className={styles.image} src={`${urls.poster}${searchMovieById.poster_path}`} alt={searchMovieById.title}/>
+                    <div className={styles.smallerBlock}>
+                        {searchMovieById.genres.map(genre => <Link key={genre.id} href={'/genres/' + genre.id}
+                                                                   className={styles.badge}><span
+                        >{genre.name} </span></Link>)}
+                    </div>
+                    <div className={styles.Stars}>
+                        <Stars rating={searchMovieById.vote_average} dimension={"18px"} spacing={'1px'}/>
+                    </div>
                 </div>}</Link>
             </div>
-            <div>
-            </div>
-        </div>
 
+        </div>
     );
     // <PaginationComponent page={1} pathname={`search?query=${submittedQuery}`}/>
 };

@@ -59,9 +59,9 @@ return (
 
             <div className={styles.divDescription}>
                 <div><b>Genres: </b></div>
-                <h3>{getMovie.genres.map(genre => <Link key={genre.id} href={'/genres/'+ genre.id} className={styles.badge}><span
+                <div className={styles.block}>{getMovie.genres.map(genre => <Link key={genre.id} href={'/genres/'+ genre.id} className={styles.badge}><span
                          > {genre.name}</span></Link>
-                )}</h3>
+                )}</div>
                 <h3>Rating</h3>
                 <Stars rating={getMovie.vote_average} dimension={"25px"} spacing={'5px'}/>
                 <div>

@@ -14,11 +14,18 @@ const ThemeSwitcher : FC = () => {
     }, [theme]);
     return (
         <div>
-                <button onClick={() => {
+            {/*<button onClick={() => {*/}
+            {/*    dispatch(changeTheme());*/}
+            {/*    console.log(theme);*/}
+            {/*}}>Change to {theme ? 'body-dark' : 'body-light'} Theme*/}
+            {/*</button>*/}
+            <div className={styles.container}>
+                <input type="checkbox" id={styles.toggleButton} className={styles.toggleButton} onChange={()=>{
                     dispatch(changeTheme());
                     console.log(theme);
-                }}>Change to {theme ? 'body-dark' : 'body-light'} Theme
-                </button>
+                }}/>
+                {/*<label htmlFor="toggle-button" className={styles.text}>Toggle Button</label>*/}
+            </div>
         </div>
     );
 };

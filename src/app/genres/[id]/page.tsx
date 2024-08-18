@@ -5,6 +5,7 @@ import styles from './genre.id.module.css'
 import {urls} from "@/constants/urls";
 import {IMovie} from "@/models/IMovie";
 import Link from "next/link";
+import Stars from "@/module/Stars";
 type Params = { id: string };
 const GenrePage = ({params}:{params:Params}) => {
     console.log(JSON.parse(params.id));
@@ -33,30 +34,42 @@ const GenrePage = ({params}:{params:Params}) => {
         }
     };
     return (
-        <div className={styles.idGenre}>
-           {
-                genreMovies.map(genreMovie =>
-                    <div className={styles.divGenre} key={genreMovie.id}>
-                    <div >
-                        <Link href={{pathname: '/movies/' + genreMovie.id, query: {data: JSON.stringify(genreMovie)}}}>
-                            <img src={urls.poster + `${genreMovie.poster_path}`} alt={genreMovie.title}
-                                 className={styles.img}/>
-                        </Link>
-                        <p className={styles.genreParagraph}>{genreMovie.title}</p>
-                    </div>
-                    </div>
-                )
+        <div>
+            <div className={styles.biggerBlock}>
+                {
+                    genreMovies.map(genreMovie => <div key={genreMovie.id}>
 
-            }
-                <div className={styles.pagination}>
-                <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                            <Link className={styles.Link}
+                                  href={{pathname: '/movies/' + genreMovie.id, query: {data: JSON.stringify(genreMovie)}}}>
+
+                                <div className={styles.block}>
+                                    <h3 className={styles.h3}>{genreMovie.title}</h3>
+                                    <img src={urls.poster + `${genreMovie.poster_path}`} alt={genreMovie.title}
+                                         className={styles.img}/>
+                                    <h3 className={styles.h3}>
+                                        Rating: {genreMovie.vote_average}
+                                    </h3>
+                                    <div className={styles.Stars}>
+                                        <Stars rating={genreMovie.vote_average} dimension={"18px"} spacing={'1px'}/>
+                                    </div>
+                                </div>
+                            </Link>
+
+                        </div>
+                    )
+
+                }
+            </div>
+            <div className={styles.pagination}>
+                <button className={styles.button} onClick={handlePreviousPage} disabled={currentPage === 1}>
                     Previous
                 </button>
                 <span>{currentPage} / {totalPages}</span>
-                <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                <button className={styles.button} onClick={handleNextPage} disabled={currentPage === totalPages}>
                     Next
                 </button>
             </div>
+            <h3 className={styles.h3}>You are on {currentPage} page</h3>
         </div>
     );
 };
