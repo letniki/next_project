@@ -1,4 +1,4 @@
-import {IGenre, IGenres} from "@/models/IGenres";
+import {IGenre} from "@/models/IGenres";
 
 export interface IMovieInfo {
     adult: boolean,

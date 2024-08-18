@@ -8,7 +8,7 @@ const HeaderComponent = () => {
 
             <nav className={styles.header}>
                <Link href={'https://github.com/letniki'}> <img src="/github.png" alt="github" className={styles.image}/></Link>
-                <Link className={styles.Link} href={'/'}>Movies</Link> {/*todo something*/}
+                <Link className={styles.Link} href={'/'}>Movies</Link>
                 <Link className={styles.Link} href={'/genres'}>Genres</Link>
                 <Link className={styles.Link} href={'/search'}>Search</Link>
                 <ThemeSwitcher />

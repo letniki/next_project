@@ -1,8 +1,6 @@
 import {baseUrl, token, urls} from "@/constants/urls";
 import {IPaginatedMovie} from "@/models/IPaginatedMovie";
 import {IMovieInfo} from "@/models/IMovieInfo";
-import {IMovie} from "@/models/IMovie";
-import {useSearchParams} from "next/navigation";
 
 export const options = {
     method: 'GET',
@@ -21,7 +19,6 @@ export const getAllMovies= async (page:number =1 ):Promise<IPaginatedMovie> => {
 export const getMovieById=async (id: number):Promise<IMovieInfo>=>{
  const movieById= await fetch(baseUrl + urls.movie+`/${id}`, options)
      .then(value => value.json());
-    console.log('Movie by ID:', movieById);
  return movieById;
 }
 

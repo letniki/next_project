@@ -15,12 +15,9 @@
     color: white;
 }
 .biggerBlock{
-    /*border: 1px solid black;*/
     display: flex;
     width:100%;
-    /*flex-direction: row;*/
     flex-wrap: wrap;
-    /*margin:10px;*/
     justify-content: center;
     align-items: center;
 }

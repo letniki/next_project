@@ -8,8 +8,6 @@ type IThemeState ={
 const initialState: IThemeState ={
     theme: false
 }
-
-
 export const themeSlice = createSlice({
     name: "themeSlice",
     initialState: initialState,
@@ -22,15 +20,3 @@ export const themeSlice = createSlice({
 export const {changeTheme} = themeSlice.actions;
 
 export default themeSlice.reducer;
-
-
-// const {reducer: themeReducer, actions} = themeSlice;
-//
-// const themeActions ={
-//     ...actions,
-// }
-//
-// export {
-//     themeReducer,
-//     themeActions
-// }

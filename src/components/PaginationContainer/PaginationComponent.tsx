@@ -1,7 +1,5 @@
-'use client'
 import Link from 'next/link';
-import {usePathname} from 'next/navigation';
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import styles from "./PaginationComponent.module.css";
 
 interface Props {
@@ -19,7 +17,6 @@ const PaginationComponent: FC<Props> = ({page, pathname}) => {
                 <Link className={styles.Link} href={`/${pathname}?page=${page > 1 ? page - 1 : 1}`}>prev</Link>
             </button>
             <Link className={styles.buttonLink} href={`/${pathname}?page=${1}`}>{1}</Link>
-            {/*<Link className={styles.buttonLink} href={`/${pathname}?page=${page > 2 ? +page -1 : 1}`}>{+page -1}</Link>*/}
             {page > 3 && <Link className={styles.buttonLink} href={`/${pathname}?page=${+page - 2}`}>{+page - 2}</Link>}
             {page > 2 && <Link className={styles.buttonLink} href={`/${pathname}?page=${+page - 1}`}>{+page - 1}</Link>}
             <Link className={styles.buttonLink}
